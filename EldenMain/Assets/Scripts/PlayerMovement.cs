@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Test comment for testing
+    public Animator animator;
+
     public Rigidbody2D rb; // Player's rigid body component
     public Transform groundCheck; // Ground check object attached to player used for checking if grounded
     public LayerMask groundLayer; // The layer applied to the ground
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
+        animator.SetFloat("Speed", Mathf.Abs(horizontal));
+
         // Flips the character left or right depending on horizontal input
         if (!isFacingRight && horizontal > 0f)
         {
@@ -42,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && IsGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            animator.SetBool("IsJumping", true);
         }
 
         // When Jump button is canceled (button is released), multiply y velocity by 0.5f to allow for shorter jumps when spacebar is tapped vs held
@@ -54,7 +58,12 @@ public class PlayerMovement : MonoBehaviour
     // Uses the Ground Check object attached to the player and the Ground layer attached to terrain to check if they're overlapping in a 0.2f radius thus meaning the player is grounded
     private bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        if (Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer) == true)
+        {
+            animator.SetBool("IsJumping", false);
+            return true;
+        }
+        return false;
     }
 
     private void Flip()
