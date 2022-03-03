@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Test comment for testing
     public Rigidbody2D rb; // Player's rigid body component
     public Transform groundCheck; // Ground check object attached to player used for checking if grounded
     public LayerMask groundLayer; // The layer applied to the ground
