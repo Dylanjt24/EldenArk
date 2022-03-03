@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float horizontal;
     [SerializeField] private float speed = 8f;
-    [SerializeField] private float jumpingPower = 7f;
+    [SerializeField] private float jumpingPower = 21f;
     private bool isFacingRight = true;
 
     // Start is called before the first frame update
@@ -68,5 +68,18 @@ public class PlayerMovement : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         horizontal = context.ReadValue<Vector2>().x;
+    }
+
+    public void Sprint(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            speed *= 2;
+        }
+
+        if (context.canceled)
+        {
+            speed /= 2;
+        }
     }
 }
