@@ -37,6 +37,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Flip();
         }
+
+        animator.SetFloat("yVelocity", rb.velocity.y);
+
+        if (IsGrounded())
+            animator.SetBool("IsJumping", false);
+        if (!IsGrounded())
+            animator.SetBool("IsJumping", true);
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -56,16 +63,10 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Uses the Ground Check object attached to the player and the Ground layer attached to terrain to check if they're overlapping in a 0.2f radius thus meaning the player is grounded
-    private bool IsGrounded()
+    public bool IsGrounded()
     {
-        if (Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer) == true)
-        {
-            animator.SetBool("IsJumping", false);
-            return true;
-        }
-        return false;
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
-
     private void Flip()
     {
         isFacingRight = !isFacingRight;
