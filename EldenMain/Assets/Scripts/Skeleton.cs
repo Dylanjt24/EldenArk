@@ -57,6 +57,24 @@ public class Skeleton : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        float playerPosition = player.localPosition.x;
+        float position = myRigidBody.position.x;
+        if(playerPosition < position)
+        {
+            if(transform.localScale.x > 0)
+            {
+                speed = -speed;
+                FlipEnemyFacing();
+            }
+        }
+        else
+        {
+            if(transform.localScale.x < 0)
+            {
+                speed = -speed;
+                FlipEnemyFacing();
+            }
+        }
         currentHealth -= damage;
         animator.SetTrigger("Hit");
         if(currentHealth <= 0)
