@@ -10,7 +10,7 @@ public class Skeleton : MonoBehaviour
     public Transform player;
     public Transform attackPoint;
     public LayerMask playerLayer;
-    public float speed;
+    public float speed = 2f;
     public float attackRange = 1.25f;
     public int attackDamage = 100;
     public float attackRate = .5f;
