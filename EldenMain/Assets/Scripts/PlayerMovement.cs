@@ -129,9 +129,9 @@ public class PlayerMovement : MonoBehaviour
         if (transform.localScale.x > 0)
             if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.right, rollSpeed * Time.deltaTime, groundLayer) == false)
                 transform.position += new Vector3(1, 0) * rollSpeed * Time.deltaTime;
-        else
-                if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.right, rollSpeed * Time.deltaTime, groundLayer) == false)
-                    transform.position += new Vector3(-1, 0) * rollSpeed * Time.deltaTime;
+        if (transform.localScale.x < 0)
+            if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.left, rollSpeed * Time.deltaTime, groundLayer) == false)
+                transform.position += new Vector3(-1, 0) * rollSpeed * Time.deltaTime;
 
         rollSpeed -= rollSpeed * 5f * Time.deltaTime;
         if (rollSpeed < 5f)
