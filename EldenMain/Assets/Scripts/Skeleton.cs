@@ -90,6 +90,7 @@ public class Skeleton : MonoBehaviour
         animator.Play("Skeleton_Dead");
         myRigidBody.velocity = new Vector2(0f, 0f);
         // animator.SetBool("IsDead", true);
+        // Physics2D.SetLayerCollisionMask(playerLayer, )
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
     }
