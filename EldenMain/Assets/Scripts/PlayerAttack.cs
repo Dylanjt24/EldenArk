@@ -69,6 +69,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Die()
     {
+        GetComponent<PlayerMovement>().enabled = false;
         Debug.Log("should be dead");
         animator.SetBool("IsDead", true);
         // animator.Play("Player_Dead");
