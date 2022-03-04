@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -18,9 +19,15 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public int Damage;
 
+    public int maxHealth = 100;
+    private int currentHealth;
+
     public float attackSpeed = 2f;
     private float attackCooldown = 0f;
 
+    private void Start() {
+        currentHealth = maxHealth;
+    }
     public void Attack(InputAction.CallbackContext context)
     {
         //If attack is off cooldown and the attack button is pressed:
@@ -37,14 +44,41 @@ public class PlayerAttack : MonoBehaviour
                 //Damage the enemies
                 foreach(Collider2D enemy in damageArea)
                 {
-                    enemy.GetComponent<Enemy>().currentHealth -= Damage;
-                    // enemy.GetComponent<Enemy>().TakeDamage();
+                    // enemy.GetComponent<Enemy>().CurrentHealth -= Damage;
+                    enemy.GetComponent<Skeleton>().TakeDamage(Damage);
+                    Debug.Log("Skeleton hit");
                 }
 
                 attackCooldown = Time.time + 1f / attackSpeed;
             }
         }
     }
+
+    public void TakeDamage(int damage)
+    {
+        Debug.Log(currentHealth);
+        currentHealth -= damage;
+        Debug.Log(currentHealth);
+        animator.SetTrigger("Hit");
+        if(currentHealth <= 0)
+        {
+            Debug.Log("Player hit");
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("should be dead");
+        animator.SetBool("IsDead", true);
+        // animator.Play("Player_Dead");
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 
     //Allows for visualization of attack radius
     void OnDrawGizmosSelected(){
