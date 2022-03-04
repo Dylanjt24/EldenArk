@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
-    private bool isRolling = false;
 
     public Rigidbody2D rb; // Player's rigid body component
     public Transform groundCheck; // Ground check object attached to player used for checking if grounded
@@ -128,9 +127,11 @@ public class PlayerMovement : MonoBehaviour
     private void HandleRollSliding()
     {
         if (transform.localScale.x > 0)
-            transform.position += new Vector3(1, 0) * rollSpeed * Time.deltaTime;
+            if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.right, rollSpeed * Time.deltaTime, groundLayer) == false)
+                transform.position += new Vector3(1, 0) * rollSpeed * Time.deltaTime;
         else
-            transform.position += new Vector3(-1, 0) * rollSpeed * Time.deltaTime;
+                if (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 1f), Vector2.right, rollSpeed * Time.deltaTime, groundLayer) == false)
+                    transform.position += new Vector3(-1, 0) * rollSpeed * Time.deltaTime;
 
         rollSpeed -= rollSpeed * 5f * Time.deltaTime;
         if (rollSpeed < 5f)
