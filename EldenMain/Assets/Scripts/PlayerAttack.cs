@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
     public int Damage;
 
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth;
 
     public float attackSpeed = 2f;
     private float attackCooldown = 0f;
@@ -45,8 +45,15 @@ public class PlayerAttack : MonoBehaviour
                 foreach(Collider2D enemy in damageArea)
                 {
                     // enemy.GetComponent<Enemy>().CurrentHealth -= Damage;
-                    enemy.GetComponent<Skeleton>().TakeDamage(Damage);
-                    Debug.Log("Skeleton hit");
+                    if(enemy.GetComponent<Skeleton>() == null)
+                    {
+                        enemy.GetComponent<Big_Momma>().TakeDamage(Damage);
+                    }
+                    else
+                    {
+                        enemy.GetComponent<Skeleton>().TakeDamage(Damage);
+                    }
+                    Debug.Log("Enemy hit");
                 }
 
                 attackCooldown = Time.time + 1f / attackSpeed;
