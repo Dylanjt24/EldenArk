@@ -6,7 +6,9 @@ public class HealthPotion : MonoBehaviour
 {
   PlayerAttack playerHealth;
 
-  public float healAmount = 50;
+  //   public Animator animator;
+
+  public int healAmount = 25;
 
   private void Awake()
   {
