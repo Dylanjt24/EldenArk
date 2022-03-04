@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2443201756621594211}
   - component: {fileID: 2443201756621594212}
-  - component: {fileID: 2443201756621594209}
-  - component: {fileID: 2443201756621594210}
   - component: {fileID: 8917388070552837257}
   - component: {fileID: 282211229983981237}
   m_Layer: 0
@@ -29,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2443201756621594213}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.637897, y: 4.398943, z: -119.60627}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 25.616, y: 4.398943, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -86,40 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2443201756621594209
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2443201756621594213}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1ab9bf1e0ae5fa341bbaad2ddc9f456a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &2443201756621594210
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2443201756621594213}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: c494be95743b0c54c82abf3f626a1e03, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!61 &8917388070552837257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +122,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60791223cb963b4296a9cf68f2a9197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healAmount: 50
