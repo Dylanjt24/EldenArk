@@ -19,6 +19,18 @@ public class FollowPlayer : MonoBehaviour
   // then the camera will follow it so it wont stutter.  
   void LateUpdate()
   {
-    transform.position = player.transform.position + cameraOffset;
+        transform.position = player.transform.position + cameraOffset;
+
+        if (transform.position.x < -12.9f)
+            transform.position = new Vector3(-12.9f, transform.position.y, transform.position.z);
+
+        if (transform.position.x > 60.9f)
+            transform.position = new Vector3(60.9f, transform.position.y, transform.position.z);
+
+        if (transform.position.y > 61f)
+            transform.position = new Vector3(transform.position.x, 61f, transform.position.z);
+
+        if (transform.position.y < 0f)
+            transform.position = new Vector3(transform.position.x, 0f, transform.position.z);
   }
 }
