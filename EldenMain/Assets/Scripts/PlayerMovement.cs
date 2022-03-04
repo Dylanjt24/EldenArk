@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
+    private bool isRolling = false;
 
     public Rigidbody2D rb; // Player's rigid body component
     public Transform groundCheck; // Ground check object attached to player used for checking if grounded
@@ -16,34 +17,51 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float jumpingPower = 21f;
     private bool isFacingRight = true;
 
+    private float rollSpeed;
+    private State state;
+    private enum State
+    {
+        Normal,
+        Rolling
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        state = State.Normal;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-
-        animator.SetFloat("Speed", Mathf.Abs(horizontal));
-
-        // Flips the character left or right depending on horizontal input
-        if (!isFacingRight && horizontal > 0f)
+        switch (state)
         {
-            Flip();
-        }
-        else if (isFacingRight && horizontal < 0f)
-        {
-            Flip();
-        }
+            case State.Normal:
+                rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
 
-        animator.SetFloat("yVelocity", rb.velocity.y);
+                animator.SetFloat("Speed", Mathf.Abs(horizontal));
 
-        if (IsGrounded())
-            animator.SetBool("IsJumping", false);
-        if (!IsGrounded())
-            animator.SetBool("IsJumping", true);
+                // Flips the character left or right depending on horizontal input
+                if (!isFacingRight && horizontal > 0f)
+                {
+                    Flip();
+                }
+                else if (isFacingRight && horizontal < 0f)
+                {
+                    Flip();
+                }
+
+                animator.SetFloat("yVelocity", rb.velocity.y);
+
+                if (IsGrounded())
+                    animator.SetBool("IsJumping", false);
+                if (!IsGrounded())
+                    animator.SetBool("IsJumping", true);
+                break;
+            case State.Rolling:
+                HandleRollSliding();
+                break;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -92,5 +110,30 @@ public class PlayerMovement : MonoBehaviour
         {
             speed /= 2;
         }
+    }
+
+    public void HandleRoll(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (IsGrounded())
+            {
+                state = State.Rolling;
+                animator.SetTrigger("Rolling");
+                rollSpeed = 45f;
+            }
+        }
+    }
+
+    private void HandleRollSliding()
+    {
+        if (transform.localScale.x > 0)
+            transform.position += new Vector3(1, 0) * rollSpeed * Time.deltaTime;
+        else
+            transform.position += new Vector3(-1, 0) * rollSpeed * Time.deltaTime;
+
+        rollSpeed -= rollSpeed * 5f * Time.deltaTime;
+        if (rollSpeed < 5f)
+            state = State.Normal;
     }
 }

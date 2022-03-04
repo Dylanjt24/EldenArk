@@ -395,6 +395,46 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0.228
       objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionId
+      value: 63006391-16f4-4742-b2b7-a8e599dd01b1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_ActionName
+      value: Player/Roll[/Keyboard/ctrl]
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 203730906}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HandleRoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187665, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_ActionEvents.Array.data[15].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5735522080630187667, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -443,6 +483,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187673, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_Size.y
+      value: 0.05734867
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187673, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.26663682
+      objectReference: {fileID: 0}
+    - target: {fileID: 5735522080630187676, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5735522080630187678, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
       propertyPath: attackRange
       value: 1.16
@@ -454,6 +506,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5735522080630187670, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
   m_PrefabInstance: {fileID: 203730902}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &203730906 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5735522080630187677, guid: 7749d128d9ee8d74c9f59c41b4f21600, type: 3}
+  m_PrefabInstance: {fileID: 203730902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203730903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26a38f6c215f71949b4f2014ba2f0927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &240718201
 PrefabInstance:
   m_ObjectHideFlags: 0
