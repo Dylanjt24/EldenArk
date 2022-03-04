@@ -139,7 +139,7 @@ MonoBehaviour:
     m_Bits: 512
   speed: 2
   attackRange: 1.25
-  attackDamage: 50
+  attackDamage: 25
   attackRate: 0.5
   nextAttackTime: 0
   myRigidBody: {fileID: 8292300998609546507}
@@ -177,7 +177,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022684015, y: -0.18407446}
+  m_Offset: {x: -0.022684015, y: -0.17813182}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.35, y: 0.5}
@@ -188,7 +188,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21094756, y: 0.5918511}
+  m_Size: {x: 0.21094756, y: 0.6037364}
   m_EdgeRadius: 0
 --- !u!61 &8292300998609546505
 BoxCollider2D:
