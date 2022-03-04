@@ -105,7 +105,7 @@ public class Skeleton : MonoBehaviour
 
     private void Die()
     {
-        animator.Play("Skeleton_Dead");
+        animator.SetTrigger("Dead");
         myRigidBody.velocity = new Vector2(0f, 0f);
         // animator.SetBool("IsDead", true);
         // Physics2D.SetLayerCollisionMask(playerLayer, )
